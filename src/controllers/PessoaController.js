@@ -1,7 +1,10 @@
+const database = require('../models');
+
 class PessoaController {
   static async pegaTodas(req, res) {
     try {
-      // acessar o modelo
+      const listaPessoas = await database.Pessoa.findAll();
+      return res.status(200).json(listaPessoas);
     } catch (erro) {
       // tratamento erro
     }
