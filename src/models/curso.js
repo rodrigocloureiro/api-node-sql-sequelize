@@ -11,6 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Curso.belongsTo(models.Categoria, {
+        foreignKey: 'categoria_id'
+      }); // cursos pertencem a (belongs to) categoria
+      Curso.belongsTo(models.Pessoa, {
+        foreignKey: 'docente_id'
+      }); // cursos pertencem a (belongs to) pessoa
+      Curso.hasMany(models.Matricula, {
+        foreignKey: 'curso_id'
+      }); // // um curso tem várias (has many) matriculas
     }
   }
   Curso.init({
