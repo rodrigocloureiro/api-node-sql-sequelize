@@ -13,6 +13,16 @@ class Services {
     return datasource[this.model].findByPk(id);
   }
 
+  async atualizaRegistro(dadosAtualizados, id) {
+    const listaDeRegistrosAtualizados = datasource[this.model].update(dadosAtualizados, {
+      where: {
+        id: id,
+      },
+    });
+    if (listaDeRegistrosAtualizados[0] === 0) return false;
+    return true;
+  }
+
   async criaRegistro(dadosDoRegistro) {
     return datasource[this.model].create(dadosDoRegistro);
   }
