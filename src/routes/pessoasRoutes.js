@@ -13,6 +13,7 @@ router
   .post('/pessoas', (req, res) => pessoaController.criaNovo(req, res))
   .put('/pessoas/:id', (req, res) => pessoaController.atualiza(req, res))
   .delete('/pessoas/:id', (req, res) => pessoaController.exclui(req, res))
+  .get('/pessoas/:estudanteId/matriculas', (req, res) => pessoaController.pegaMatriculas(req, res))
   .post('/pessoas/:estudanteId/matriculas', (req, res) => matriculaController.criaNovo(req, res));
 
 module.exports = router;
